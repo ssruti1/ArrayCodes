@@ -1,0 +1,21 @@
+class Solution {
+    public int maximizeSum(int[] nums, int k) {
+        List<Integer> nm=new ArrayList<>();
+        for(int i:nums)
+        {
+            nm.add(i);
+        }
+        Collections.sort(nm);
+        int sum=0;
+        int len=nm.size();
+        while(k>0)
+        {
+            int ele=nm.get(len-1);
+            sum+=ele;
+            nm.remove(len-1);
+            nm.add(ele+1);
+            k--;
+        }
+        return sum;
+    }
+}
